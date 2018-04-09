@@ -117,7 +117,7 @@
     </target>
     
     <target name="coverage-check">
-        <covertura-check branchrate="34" totallinerate="100" />
+        <cobertura-check branchrate="34" totallinerate="100" />
     </target>
     
     <target name="coverage-report">
@@ -174,6 +174,14 @@
             </manifest>
         </jar>
     </target>
+    
+    <target name="run"
+		    description="Run the jar file"
+		    depends="dist">
+		<java jar="${dist}/lib/FourInARow.jar"
+		      fork="true" />
+	</target>
+
     
     <target name="coverage" 
     	   depends="clean,compile,instrument,test,coverage-report,summary-coverage-report,alternate-coverage-report,javadoc,dist" description="Compile, instrument ourself, run the tests and generate JUnit and coverage reports.">
