@@ -11,6 +11,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.Button;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.control.MenuItem; 
 
 /**
  * Controller for the main user interface. This will respond to the 
@@ -36,6 +37,18 @@ public class FourInARowController implements Initializable {
      */
     @FXML
     private TextArea messageArea;
+    
+    /**
+     * Link to the undo menu item. 
+     */ 
+    @FXML 
+    private MenuItem undoMenuItem; 
+    
+    /** 
+     * Link to the redo menu item. 
+     */
+    @FXML 
+    private MenuItem redoMenuItem; 
     
     /**
      * A link to the grid that shows the different squares that represent 
@@ -246,6 +259,22 @@ public class FourInARowController implements Initializable {
     @FXML
     private void handleQuitAction(ActionEvent event) { 
        System.exit(0); 
+    }
+    
+    /** 
+     * Responds to the Undo action being called from the menu. 
+     */
+    @FXML
+    private void handleUndoAction(ActionEvent event) { 
+       messageArea.setText("undo"); 
+    }
+    
+    /** 
+     * Responds to the Redo action being called from the menu. 
+     */
+    @FXML
+    private void handleRedoAction(ActionEvent event) { 
+       messageArea.setText("redo");  
     }
     
     /** 
